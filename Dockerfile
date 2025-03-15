@@ -70,11 +70,11 @@ RUN chmod +x $HOME/start_server.sh
 RUN rclone config -h
 
 WORKDIR /home/coder
-RUN cp $HOME/start_server.sh /home/coder
+RUN cp -f $HOME/start_server.sh /home/coder
 # Start code-server with authentication
 CMD ["sh", "-c", "code-server --bind-addr 0.0.0.0:8080"]
 
-CMD ["sh", "-c", "/home/start_server.sh"]
+CMD ["sh", "-c", "/home/coder/start_server.sh"]
 # ENTRYPOINT ["/home/coder/start_server.sh"]
 
 # Expose the default code-server port

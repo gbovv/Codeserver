@@ -70,7 +70,7 @@ RUN chmod +x $HOME/start_server.sh
 RUN rclone config -h
 
 WORKDIR /home/coder
-
+RUN cp $HOME/start_server.sh /home/coder
 # Start code-server with authentication
 CMD ["sh", "-c", "code-server --bind-addr 0.0.0.0:8080"]
 
